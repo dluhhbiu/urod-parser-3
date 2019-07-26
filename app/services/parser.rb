@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-require 'awesome_print'
-require 'byebug'
-require 'net/http'
+require 'httparty'
 require 'nokogiri'
 
 # class for parsing xml from a site
@@ -21,14 +19,14 @@ class Parser
   private
 
   def xml_content
-    Net::HTTP.get(URI.parse(XML_URL))
+    HTTParty.get(XML_URL).body
   end
 
   def processing
     record = { urod_id: urod_id }
     return if record[:urod_id].blank?
     return if News.where(urod_id: record[:urod_id]).present?
-    return if content_encoded.to_s.include?(STOP_CONTENT)
+    return if content_encoded.text.include?(STOP_CONTENT)
 
     record[:link] = attr_content('link')
     record[:title] = attr_content('title')
@@ -44,23 +42,39 @@ class Parser
   end
 
   def content_encoded
-    Nokogiri::HTML(@item.at_xpath('content:encoded').to_html)
+    @item.at_xpath('content:encoded')
+  end
+
+  def html_content_encoded
+    Nokogiri::HTML(content_encoded.to_html)
+  end
+
+  def text_content_encoded
+    Nokogiri::HTML(content_encoded.text)
   end
 
   def img?
     @item.at_xpath('enclosure').present? ||
-      content_encoded&.at('img')&.present?
+      html_content_encoded&.at('img')&.present?
   end
 
   def text?
-    content_encoded&.xpath('//text()')&.to_html&.gsub('\n', '')&.strip&.length&.positive?
+    @item.at_xpath('content:encoded').text.gsub("\n", '').strip.length.positive?
+  end
+
+  def text
+    doc = text_content_encoded
+    doc.css('br').each do |node|
+      node.replace(Nokogiri::XML::Text.new("\n", doc))
+    end
+    doc.text
   end
 
   def img
     if @item.at_xpath('enclosure').present?
       @item.at_xpath('enclosure')&.[](:url)
-    elsif content_encoded&.at('img')&.present?
-      content_encoded&.at('img')&.[](:src)
+    elsif html_content_encoded&.at('img')&.present?
+      html_content_encoded&.at('img')&.[](:src)
     else
       raise StandardError
     end
@@ -70,7 +84,7 @@ class Parser
     if img?
       { format: 'img', text: img }
     elsif text?
-      { format: 'text', text: content_encoded.to_html }
+      { format: 'text', text: text }
     else
       { format: 'none', text: nil }
     end

@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '2.5.3'
 
 gem 'dotenv', '~>2.7.4'
+gem 'httparty', '~>0.17.0'
 gem 'nokogiri', '~>1.10.3'
 gem 'pg', '~>1.1.4'
 gem 'rake', '~>12.3.2'
