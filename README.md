@@ -11,3 +11,9 @@ CHAT_ID=changeme
 BOT=changeme
 ```
 Create `.env` file and add the example above for locally running. 
+
+If you don't know where take personal `chat_id` for sending yourself messages, so:
+
+- Start a chat with your bot (I mean button `/start` and one message)
+- Do request through browser or curl `https://api.telegram.org/bot<yourtoken>/getUpdates` 
+- You will find your last messages and your personal `chat_id` 
