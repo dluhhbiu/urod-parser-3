@@ -1,1 +1,1 @@
-web: rackup
+web: rake db:migrate && rackup

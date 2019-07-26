@@ -6,9 +6,6 @@ require 'bundler'
 Bundler.require
 
 require 'sinatra/base'
-require 'sequel'
+require './config/boot'
 
-Dotenv.load
-Sequel.connect(ENV.fetch('DATABASE_URL'))
-Dir.glob('./app/**/*.rb').each { |file| require file }
 map('/') { run WelcomeController }
