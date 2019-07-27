@@ -16,7 +16,9 @@ class Object
   #
   # @return [true, false]
   def blank?
+    # rubocop:disable Style/DoubleNegation
     respond_to?(:empty?) ? !!empty? : !self
+    # rubocop:enable Style/DoubleNegation
   end
 
   # An object is present if it's not blank.

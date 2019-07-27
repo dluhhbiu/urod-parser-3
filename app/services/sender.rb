@@ -21,24 +21,32 @@ class Sender
     News.where(send_msg: false).order(:urod_id)
   end
 
-  def prepare(n)
-    if n.img?
-      {
-        action: 'sendPhoto',
-        data: {
-          photo: n.text,
-          caption: "#{n.title}\n#{n.link}"
-        }
-      }
+  def prepare(record)
+    if record.img?
+      prepare_img(record)
     else
-      {
-        action: 'sendMessage',
-        data: {
-          text: "*#{n.title}*\n#{n.link}\n#{n.text}",
-          parse_mode: 'markdown'
-        }
-      }
+      prepare_text(record)
     end
+  end
+
+  def prepare_img(record)
+    {
+      action: 'sendPhoto',
+      data: {
+        photo: record.text,
+        caption: "#{record.title}\n#{record.link}"
+      }
+    }
+  end
+
+  def prepare_text(record)
+    {
+      action: 'sendMessage',
+      data: {
+        text: "*#{record.title}*\n#{record.link}\n#{record.text}",
+        parse_mode: 'markdown'
+      }
+    }
   end
 
   def send_news(data)
