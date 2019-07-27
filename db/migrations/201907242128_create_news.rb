@@ -2,7 +2,7 @@
 
 Sequel.migration do
   up do
-    create_table(:news) do
+    create_table?(:news) do
       primary_key :urod_id
       String :link
       String :title

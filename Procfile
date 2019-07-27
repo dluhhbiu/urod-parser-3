@@ -1,1 +1,1 @@
-web: rake db:migrate && rackup
+web: rake db:migrate && rackup -p $PORT

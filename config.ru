@@ -5,7 +5,6 @@ require 'bundler'
 
 Bundler.require
 
-require 'sinatra/base'
 require './config/boot'
 
 map('/') { run WelcomeController }

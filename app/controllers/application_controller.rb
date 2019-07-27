@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
-require 'sinatra/reloader'
-
 class ApplicationController < Sinatra::Base
   # reload app in dev mode
   configure :development do
+    require 'sinatra/reloader'
     register Sinatra::Reloader
   end
 
