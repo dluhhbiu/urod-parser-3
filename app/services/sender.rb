@@ -43,7 +43,7 @@ class Sender
     {
       action: 'sendMessage',
       data: {
-        text: "*#{record.title}*\n#{record.link}\n#{record.text}",
+        text: "*#{record.title}*\n#{record.text}\n#{record.link}",
         parse_mode: 'markdown'
       }
     }
