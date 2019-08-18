@@ -16,9 +16,21 @@ gem 'sorbet-runtime'
 group :development, :test do
   gem 'awesome_print', '~>1.8.0'
   gem 'byebug', '~>11.0.1'
-  gem 'rspec', '~>3.8.0'
+  gem 'rack-console', '~>1.3.1'
   gem 'rubocop', '~>0.72.0'
-  gem 'simplecov', '~>0.16.1', require: false
+  gem 'rubocop-rspec', '~>1.35.0'
+end
+
+group :development do
   gem 'sinatra-contrib', '~>2.0.5', require: 'sinatra/reloader'
   gem 'sorbet'
+end
+
+group :test do
+  gem 'database_cleaner', '~>1.5.3'
+  gem 'factory_bot', '~>5.0.2'
+  gem 'faker', '~>2.1.2'
+  gem 'rack-test', '~>1.1.0'
+  gem 'rspec', '~>3.8.0'
+  gem 'simplecov', '~>0.16.1', require: false
 end

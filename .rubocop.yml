@@ -1,2 +1,4 @@
+require: rubocop-rspec
+
 Style/Documentation:
   Enabled: false
