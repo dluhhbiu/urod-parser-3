@@ -7,6 +7,7 @@ module Sender
     include Singleton
 
     def self.batch_send
+      new_records = News.where(send_tg: false).order(:urod_id)
       new_records.each { |record| instance.send_record(record) }
     end
 

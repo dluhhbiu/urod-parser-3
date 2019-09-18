@@ -5,7 +5,6 @@ module Sender
   TELEGRAM_API = "https://api.telegram.org/bot#{ENV['BOT']}/"
 
   def new_records
-    News.where(send_msg: false).order(:urod_id)
   end
 
   def remove_old_news!
