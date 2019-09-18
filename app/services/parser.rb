@@ -5,13 +5,15 @@ require 'nokogiri'
 
 # class for parsing xml from a site
 class Parser
+  include Singleton
+
   XML_URL = 'http://urod.ru/xml/rss.xml'
   STOP_CONTENT = 'Смотреть новость на сайте партнеров'
 
-  def parse
+  def self.parse
     Nokogiri::XML(xml_content).search('//item').map do |item|
       @item = item
-      processing_item = processing
+      processing_item = instance.processing
       News.insert(processing_item) if processing_item.present?
     end
   end
