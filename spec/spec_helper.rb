@@ -23,20 +23,20 @@ require 'factory_bot'
 Dir.glob('./spec/factories/**').each { |file| require file }
 require 'faker'
 require 'database_cleaner'
+require 'webmock/rspec'
+WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   # for testing endpoints
   include Rack::Test::Methods
 
   # for refreshing db
-  config.before(:all) do
+  config.before do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.start
   end
 
-  config.after(:all) do
-    DatabaseCleaner.clean
-  end
+  config.after { DatabaseCleaner.clean }
 
   # rspec-expectations config goes here. You can use an alternate
   # assertion/expectation library such as wrong or the stdlib/minitest

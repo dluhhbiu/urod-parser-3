@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:media="http://search.yahoo.com/mrss/"
+     xmlns:atom="http://www.w3.org/2005/Atom"
+     xmlns:georss="http://www.georss.org/georss">
+    <channel>
+        <item>
+            <title>Title 1</title>
+            <link>http://example.com/11111/</link>
+            <enclosure url="http://example.com/img.png" type="image/jpeg"/>
+            <description><![CDATA[
+Title 1
+ ]]></description>
+            <content:encoded><![CDATA[
+Some text<br />&nbsp;<br />
+ ]]></content:encoded>
+        </item>
+        <item>
+            <title>Title 2</title>
+            <link>http://example.com/22222/</link>
+            <description><![CDATA[
+Title 2
+ ]]></description>
+            <content:encoded><![CDATA[
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis ultrices, arcu in pharetra egestas, augue massa lobortis lorem, eu consequat elit erat eu nulla. Duis malesuada quis urna a consequat. Proin sodales mattis nulla ut rhoncus. Curabitur tristique nunc in nulla maximus mattis. Donec vehicula nisi sed ante blandit, in auctor sapien mattis. Ut at mattis leo, in iaculis velit. Pellentesque tristique sem sed felis luctus, sit amet ultricies neque elementum. Pellentesque vehicula massa vitae est ultricies, et eleifend magna eleifend. Phasellus faucibus, odio vitae pretium molestie, ipsum nisl tempus metus, sed tempus ipsum orci eu massa.
+ ]]></content:encoded>
+        </item>
+    </channel>
+</rss>
