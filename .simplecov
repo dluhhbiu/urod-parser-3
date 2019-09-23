@@ -7,8 +7,15 @@ SimpleCov.start do
   add_filter '/sorbet/'
   add_filter '/spec/'
   add_filter '/lib/'
+  # the file has config blocks witch don't work with text environment
+  add_filter '/app/controllers/application_controller.rb'
 
   add_group 'Controllers', 'app/controllers/'
   add_group 'Models', 'app/models/'
   add_group 'Services', 'app/services/'
+end
+
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
