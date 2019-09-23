@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/dluhhbiu/urod-parser-3.svg?branch=master)](https://travis-ci.org/dluhhbiu/urod-parser-3)
 [![codecov](https://codecov.io/gh/dluhhbiu/urod-parser-3/branch/master/graph/badge.svg)](https://codecov.io/gh/dluhhbiu/urod-parser-3)
+[![Maintainability](https://api.codeclimate.com/v1/badges/6fd16de754ef5ed16da1/maintainability)](https://codeclimate.com/github/dluhhbiu/urod-parser-3/maintainability)
 
 Parsing and sending news
 
