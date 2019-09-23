@@ -1,5 +1,8 @@
 # Urod-parser-3
 
+[![Build Status](https://travis-ci.org/dluhhbiu/urod-parser-3.svg?branch=master)](https://travis-ci.org/dluhhbiu/urod-parser-3)
+[![codecov](https://codecov.io/gh/dluhhbiu/urod-parser-3/branch/master/graph/badge.svg)](https://codecov.io/gh/dluhhbiu/urod-parser-3)
+
 Parsing and sending news
 
 [Subscribe](https://t.me/urodru)
