@@ -15,5 +15,7 @@ SimpleCov.start do
   add_group 'Services', 'app/services/'
 end
 
-require 'codecov'
-SimpleCov.formatter = SimpleCov::Formatter::Codecov
+if ENV['CI'] == 'true'
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
