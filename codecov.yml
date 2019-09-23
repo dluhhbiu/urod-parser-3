@@ -1,0 +1,3 @@
+ignore:
+  # the file has config blocks witch don't work with text environment
+  - 'app/controllers/application_controller.rb'
