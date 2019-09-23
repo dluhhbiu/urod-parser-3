@@ -1,6 +1,5 @@
 *.rbc
 capybara-*.html
-.rspec
 /log
 /tmp
 /db/*.sqlite3
@@ -49,3 +48,4 @@ node_modules/
 
 .idea/
 urod-parser-3.iml
+sorbet/
