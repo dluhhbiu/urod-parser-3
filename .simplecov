@@ -12,3 +12,6 @@ SimpleCov.start do
   add_group 'Models', 'app/models/'
   add_group 'Services', 'app/services/'
 end
+
+require 'codecov'
+SimpleCov.formatter = SimpleCov::Formatter::Codecov

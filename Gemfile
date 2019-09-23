@@ -27,6 +27,7 @@ group :development do
 end
 
 group :test do
+  gem 'codecov', '~>0.1.14'
   gem 'database_cleaner', '~>1.5.3'
   gem 'factory_bot', '~>5.0.2'
   gem 'faker', '~>2.1.2'
