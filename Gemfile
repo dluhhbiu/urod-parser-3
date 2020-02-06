@@ -12,6 +12,7 @@ gem 'rake', '~>12.3.2'
 gem 'sequel', '~>5.21.0'
 gem 'sinatra', '~>2.0.5'
 gem 'sorbet-runtime'
+gem 'discordrb', '~>3.3.0'
 
 group :development, :test do
   gem 'awesome_print', '~>1.8.0'

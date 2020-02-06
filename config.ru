@@ -2,9 +2,8 @@
 
 require 'rubygems'
 require 'bundler'
-
 Bundler.require
 
 require './config/boot'
-
-map('/') { run WelcomeController }
+require './config/sinatra'
+require './config/discord'
